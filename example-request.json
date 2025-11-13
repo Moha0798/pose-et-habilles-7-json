@@ -1,0 +1,285 @@
+{
+  "input": {
+    "workflow": {
+      "3": {
+        "inputs": {
+          "seed": 719498378887651,
+          "steps": 12,
+          "cfg": 1.2,
+          "sampler_name": "dpmpp_2m",
+          "scheduler": "simple",
+          "denoise": 0.8,
+          "model": [
+            "75",
+            0
+          ],
+          "positive": [
+            "104",
+            0
+          ],
+          "negative": [
+            "117",
+            0
+          ],
+          "latent_image": [
+            "116",
+            0
+          ]
+        },
+        "class_type": "KSampler",
+        "_meta": {
+          "title": "KSampler"
+        }
+      },
+      "8": {
+        "inputs": {
+          "samples": [
+            "3",
+            0
+          ],
+          "vae": [
+            "39",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "38": {
+        "inputs": {
+          "filename": "qwen_2.5_vl_7b_fp8_scaled.safetensors"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "CLIPLoader"
+        }
+      },
+      "39": {
+        "inputs": {
+          "filename": "qwen_image_vae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "VAELoader"
+        }
+      },
+      "60": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "8",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "66": {
+        "inputs": {
+          "value": 3,
+          "model": [
+            "89",
+            0
+          ]
+        },
+        "class_type": "ModelSamplingAuraFlow",
+        "_meta": {
+          "title": "ModelSamplingAuraFlow"
+        }
+      },
+      "75": {
+        "inputs": {
+          "value": 1,
+          "model": [
+            "66",
+            0
+          ]
+        },
+        "class_type": "CFGNorm",
+        "_meta": {
+          "title": "CFGNorm"
+        }
+      },
+      "89": {
+        "inputs": {
+          "filename": "Qwen-Image-Edit-Lightning-4steps-V1.0.safetensors",
+          "model": [
+            "110",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "93": {
+        "inputs": {
+          "text": "lanczos",
+          "image": [
+            "130",
+            0
+          ]
+        },
+        "class_type": "ImageScaleToTotalPixels",
+        "_meta": {
+          "title": "ImageScaleToTotalPixels"
+        }
+      },
+      "104": {
+        "inputs": {
+          "filename": "Create a realistic photograph of the same person from image 1, wearing the clothes from image 2 and matching the pose from image 3. \nPreserve every physical characteristic from image 1 — face identity, body shape, skin tone, hair, facial structure, and overall proportions. \nKeep natural lighting and consistent perspective. \nEnsure the clothing fits naturally on the body, with realistic fabric folds, shading, and texture.\nAvoid any changes to body type, facial features, or skin details.\nUse image 1 as the person. KEEP the exact identity of image 1: same face, skin tone, age, hairline and haircut. Do not change the face shape or hair. Put on the clothes from image 2. Repose the BODY to match image 3 (pose ONLY). Photorealistic, natural fabric, clean edges, detailed textures, sharp focus, no blur\n",
+          "clip": [
+            "38",
+            0
+          ],
+          "vae": [
+            "39",
+            0
+          ],
+          "image1": [
+            "93",
+            0
+          ],
+          "image2": [
+            "108",
+            0
+          ],
+          "image3": [
+            "112",
+            0
+          ]
+        },
+        "class_type": "TextEncodeQwenImageEditPlus",
+        "_meta": {
+          "title": "TextEncodeQwenImageEditPlus"
+        }
+      },
+      "108": {
+        "inputs": {
+          "text": "lanczos",
+          "image": [
+            "131",
+            0
+          ]
+        },
+        "class_type": "ImageScaleToTotalPixels",
+        "_meta": {
+          "title": "ImageScaleToTotalPixels"
+        }
+      },
+      "110": {
+        "inputs": {
+          "filename": "Qwen-Image-Edit-2509_fp8_e4m3fn.safetensors"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "UNETLoader"
+        }
+      },
+      "112": {
+        "inputs": {
+          "text": "lanczos",
+          "image": [
+            "113",
+            0
+          ]
+        },
+        "class_type": "ImageScaleToTotalPixels",
+        "_meta": {
+          "title": "ImageScaleToTotalPixels"
+        }
+      },
+      "113": {
+        "inputs": {
+          "text": "enable",
+          "image": [
+            "132",
+            0
+          ]
+        },
+        "class_type": "OpenposePreprocessor",
+        "_meta": {
+          "title": "OpenposePreprocessor"
+        }
+      },
+      "115": {
+        "inputs": {
+          "image": [
+            "112",
+            0
+          ]
+        },
+        "class_type": "GetImageSize",
+        "_meta": {
+          "title": "GetImageSize"
+        }
+      },
+      "116": {
+        "inputs": {
+          "value": 512,
+          "width": [
+            "115",
+            0
+          ],
+          "height": [
+            "115",
+            1
+          ]
+        },
+        "class_type": "EmptyLatentImage",
+        "_meta": {
+          "title": "EmptyLatentImage"
+        }
+      },
+      "117": {
+        "inputs": {
+          "text": "plastic skin, waxy texture, altered face, changed body shape, slimmed body, warped anatomy, airbrushed skin, unrealistic lighting, overexposed, low contrast, cartoon style, deformed hands, inconsistent proportions, duplicated face\n",
+          "clip": [
+            "38",
+            0
+          ],
+          "vae": [
+            "39",
+            0
+          ]
+        },
+        "class_type": "TextEncodeQwenImageEditPlus",
+        "_meta": {
+          "title": "TextEncodeQwenImageEditPlus"
+        }
+      },
+      "130": {
+        "inputs": {
+          "filename": "https://example.com/image.jpg"
+        },
+        "class_type": "HTTPImageLoader",
+        "_meta": {
+          "title": "HTTPImageLoader"
+        }
+      },
+      "131": {
+        "inputs": {
+          "filename": "https://example.com/image.jpg"
+        },
+        "class_type": "HTTPImageLoader",
+        "_meta": {
+          "title": "HTTPImageLoader"
+        }
+      },
+      "132": {
+        "inputs": {
+          "filename": "https://example.com/image.jpg"
+        },
+        "class_type": "HTTPImageLoader",
+        "_meta": {
+          "title": "HTTPImageLoader"
+        }
+      }
+    }
+  }
+}
